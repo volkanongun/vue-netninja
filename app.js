@@ -1,27 +1,20 @@
 const app = new Vue({
 	el:"#vue-app",
 	data:{
-		name : "Volkan",
-		age : 39
+		age : 39,
+		a: 0,
+		b: 0
 	},
 	template:`
 		<div>
-			<h1>Keyboard Events</h1>
-			<p><label>Name:</label>
-						<input type="text" v-model="name" />
-						<span>{{ name }}</span></p>
-			<p><label>Age:</label>
-						<input type="text" v-model="age" />
-						<span>{{ age }}</span></p>
+			<h1>Computed Properties</h1>
+			<button v-on:click="a++"></button>
+			<button v-on:click="b++"></button>
+			<p>A - {{ a }}</p>
+			<p>B - {{ b }}</p>
 		</div>
 	`,
 	methods:{
-		logName(){
-
-			
-		},
-		logAge(){
-			console.log('entered age')
-		}
+		
 	}
 });
