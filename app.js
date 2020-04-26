@@ -18,12 +18,13 @@ const app = new Vue({
 			<p v-html="websiteTag"></p>
 			<p>My age is {{ age }}</p>
 			<p>
-				<button @click='add'>Add a year</button>
+				<button @click.once='add'>Add a year</button>
 				<button @click='subtract'>Subtract a year</button>
 				<button @dblclick='addTenYears'>Add 10 years</button>
 				<button @dblclick='subtractTenYears'>Subtract 10 years</button>
 			</p>
 			<div id="canvas" @mousemove="updateXY">{{x}}, {{y}}</div>
+			<a @click.prevent="websiteclick" href="http://volkanongun.com">Volkan's website</a>
 		</div>
 	`,
 	methods:{
@@ -46,6 +47,9 @@ const app = new Vue({
 			// console.log(e)
 			this.x = e.offsetX
 			this.y = e.offsetY
+		},
+		websiteclick(){
+			alert("clicked!")
 		}
 	}
 });
