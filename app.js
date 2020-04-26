@@ -1,32 +1,34 @@
 const app = new Vue({
 	el:"#vue-app",
 	data:{
-		age : 39,
-		a: 0,
-		b: 0
+		available: false,
+		nearby: false
 	},
 	template:`
 		<div>
-			<h1>Computed Properties</h1>
-			<button v-on:click="a++">Increment A</button>
-			<button v-on:click="b++">Increment B</button>
-			<p>A - {{ a }}</p>
-			<p>B - {{ b }}</p>
-			<p>Age + A = {{ addToA }}</p>
-			<p>Age + B = {{ addToB }}</p>
+			<h1>Dynamic CSS</h1>
+			<h2>Example 1</h2>
+			<!-- <div v-on:click="available = !available" v-bind:class="{ available: available }">
+			 	<span>Ryu</span>
+			 </div> -->
+			<h2>Example 2</h2>
+			<button v-on:click="available = !available">Toggle available</button>
+			<button v-on:click="nearby = !nearby">Toggle nearby</button>
+
+			<div v-bind:class="computedClasses">
+				<span>Ryu</span>
+			</div>
 		</div>
 	`,
 	methods:{
 		
 	},
 	computed:{
-		addToA(){
-			console.log("addtoA")
-			return this.age + this.a
-		},
-		addToB(){
-			console.log("addtoB")
-			return this.age + this.b
+		computedClasses(){
+			return {
+				available: this.available,
+				nearby: this.nearby
+			}
 		}
 	}
 });
