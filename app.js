@@ -18,12 +18,12 @@ const app = new Vue({
 			<p v-html="websiteTag"></p>
 			<p>My age is {{ age }}</p>
 			<p>
-				<button v-on:click='add'>Add a year</button>
-				<button v-on:click='subtract'>Subtract a year</button>
-				<button v-on:dblclick='addTenYears'>Add 10 years</button>
-				<button v-on:dblclick='subtractTenYears'>Subtract 10 years</button>
+				<button @click='add'>Add a year</button>
+				<button @click='subtract'>Subtract a year</button>
+				<button @dblclick='addTenYears'>Add 10 years</button>
+				<button @dblclick='subtractTenYears'>Subtract 10 years</button>
 			</p>
-			<div id="canvas" v-on:mousemove="updateXY">{{x}}, {{y}}</div>
+			<div id="canvas" @mousemove="updateXY">{{x}}, {{y}}</div>
 		</div>
 	`,
 	methods:{
