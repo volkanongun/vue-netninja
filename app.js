@@ -2,50 +2,23 @@ const app = new Vue({
 	el:"#vue-app",
 	data:{
 		name : "Volkan",
-		job: "Ninja",
-		website: "http://volkanongun.com",
-		websiteTag: '<a href="http://volkanongun.com">Link</a>',
-		age : 25,
-		x: 0,
-		y: 0
 	},
 	template:`
 		<div>
-			<h1>Name: {{name}}</h1>
-			<h2>Job: {{job}}</h2>
-			<p>{{greet('afternoon')}}</p>
-			<p><a :href="website" target="_blank">volkan's website</a></p>
-			<p v-html="websiteTag"></p>
-			<p>My age is {{ age }}</p>
-			<p>
-				<button @click='add'>Add a year</button>
-				<button @click='subtract'>Subtract a year</button>
-				<button @dblclick='addTenYears'>Add 10 years</button>
-				<button @dblclick='subtractTenYears'>Subtract 10 years</button>
-			</p>
-			<div id="canvas" @mousemove="updateXY">{{x}}, {{y}}</div>
+			<h1>Keyboard Events</h1>
+			<label>Name:</label>
+			<input type="text" name="" id="" v-on:keyup.enter="logName" />
+			<label>Age:</label>
+			<input type="text" name="" id="" v-on:keyup.enter="logAge" />
 		</div>
 	`,
 	methods:{
-		greet(time){
-			return `Good ${time}` + ' ' + this.name
+		logName(){
+			console.log('entered name')
+			
 		},
-		add(){
-			this.age++
-		},
-		subtract(){
-			this.age--
-		},
-		addTenYears(){
-			this.age+=10
-		},
-		subtractTenYears(){
-			this.age-=10
-		},
-		updateXY(e){
-			// console.log(e)
-			this.x = e.offsetX
-			this.y = e.offsetY
+		logAge(){
+			console.log('entered age')
 		}
 	}
 });
