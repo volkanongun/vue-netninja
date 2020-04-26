@@ -1,20 +1,39 @@
 const app = new Vue({
 	el:"#vue-app",
 	data:{
-		error: false,
-        success: false
+		characters: ['Mario', 'Luigi', 'Yoshi', 'Bowser'],
+        ninjas: [
+            { name: 'Ryu', age: 25 },
+            { name: 'Yoshi', age: 35 },
+            { name: 'Ken', age: 55 }
+        ]
 	},
 	template:`
 		<div>
-			<h1>Conditionals</h1>
-			<button v-on:click="error = !error">Toggle Error</button>
-			<button v-on:click="success = !success">Toggle Success</button>
-			<!--
-			<p v-if="error">There has been an error</p>
-			<p v-else-if="success">Woo! success</p>
-			-->
-			<p v-show="error">There has been an error</p>
-			<p v-show="success">Whoo, success!</p>
+			<h1>V-For</h1>
+			<ul>
+				<li v-for="character in characters">{{character}}</li>
+			</ul>
+
+			<ul>
+				<li v-for="(ninja, index) in ninjas">{{ninja.name}} - {{ninja.age}}</li>
+			</ul>
+
+			<div v-for="(ninja, index) in ninjas">
+				<h3>{{index}} . {{ninja.name}}</h3>
+				<p>{{ninja.age}}</p>
+			</div>
+
+			<template v-for="(ninja, index) in ninjas">
+				<h3>{{index}} . {{ninja.name}}</h3>
+				<p>{{ninja.age}}</p>
+			</template>
+
+			<template v-for="ninja in ninjas">
+				<div v-for="(val,key) in ninja">
+					<p>{{ key }} - {{ val }}</p>
+				</div>
+			</template>
 		</div>
 	`,
 	methods:{
@@ -22,10 +41,7 @@ const app = new Vue({
 	},
 	computed:{
 		computedClasses(){
-			return {
-				available: this.available,
-				nearby: this.nearby
-			}
+
 		}
 	}
 });
