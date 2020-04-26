@@ -8,8 +8,8 @@ const app = new Vue({
 	template:`
 		<div>
 			<h1>Computed Properties</h1>
-			<button v-on:click="a++"></button>
-			<button v-on:click="b++"></button>
+			<button v-on:click="a++">Increment A</button>
+			<button v-on:click="b++">Increment B</button>
 			<p>A - {{ a }}</p>
 			<p>B - {{ b }}</p>
 		</div>
