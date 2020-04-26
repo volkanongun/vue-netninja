@@ -4,7 +4,10 @@ const app = new Vue({
 		name : "Volkan",
 		job: "Ninja",
 		website: "http://volkanongun.com",
-		websiteTag: '<a href="http://volkanongun.com">Link</a>'
+		websiteTag: '<a href="http://volkanongun.com">Link</a>',
+		age : 25,
+		x: 0,
+		y: 0
 	},
 	template:`
 		<div>
@@ -13,11 +16,36 @@ const app = new Vue({
 			<p>{{greet('afternoon')}}</p>
 			<p><a :href="website" target="_blank">volkan's website</a></p>
 			<p v-html="websiteTag"></p>
+			<p>My age is {{ age }}</p>
+			<p>
+				<button v-on:click='add'>Add a year</button>
+				<button v-on:click='subtract'>Subtract a year</button>
+				<button v-on:dblclick='addTenYears'>Add 10 years</button>
+				<button v-on:dblclick='subtractTenYears'>Subtract 10 years</button>
+			</p>
+			<div id="canvas" v-on:mousemove="updateXY">{{x}}, {{y}}</div>
 		</div>
 	`,
 	methods:{
 		greet(time){
 			return `Good ${time}` + ' ' + this.name
+		},
+		add(){
+			this.age++
+		},
+		subtract(){
+			this.age--
+		},
+		addTenYears(){
+			this.age+=10
+		},
+		subtractTenYears(){
+			this.age-=10
+		},
+		updateXY(e){
+			// console.log(e)
+			this.x = e.offsetX
+			this.y = e.offsetY
 		}
 	}
 });
