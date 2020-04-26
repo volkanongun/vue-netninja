@@ -12,9 +12,21 @@ const app = new Vue({
 			<button v-on:click="b++">Increment B</button>
 			<p>A - {{ a }}</p>
 			<p>B - {{ b }}</p>
+			<p>Age + A = {{ addToA }}</p>
+			<p>Age + B = {{ addToB }}</p>
 		</div>
 	`,
 	methods:{
 		
+	},
+	computed:{
+		addToA(){
+			console.log("addtoA")
+			return this.age + this.a
+		},
+		addToB(){
+			console.log("addtoB")
+			return this.age + this.b
+		}
 	}
 });
