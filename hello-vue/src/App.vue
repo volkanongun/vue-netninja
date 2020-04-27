@@ -1,32 +1,30 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <p>{{ title }}</p>
-    <p>{{ greeting() }}</p>
-    <Ninjas></Ninjas>
-    <samurais></samurais>
+  <div>
+    <app-header></app-header>
+    <app-body></app-body>
+    <app-footer></app-footer>
   </div>
 </template>
 
 <script>
-import Ninjas from './components/Ninjas.vue'
 
-export default {
-  name: 'App',
-  data(){
-    return {
-      title: 'Ninja App',
-    }
-  },
-  components:{
-    Ninjas
-  },
-  methods:{
-    greeting(){
-      return "Greetings!"
+  import Header from "./components/Header.vue";
+  import Ninjas from "./components/Ninjas.vue";
+  import Footer from "./components/Footer.vue";
+
+  export default {
+    components:{
+      'app-header' : Header,
+      'app-body' : Ninjas,
+      'app-footer' : Footer
+    },
+    data(){
+      return {
+
+      }
     }
   }
-}
+
 </script>
 
 <style>
