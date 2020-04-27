@@ -4,6 +4,7 @@
     <p>{{ title }}</p>
     <p>{{ greeting() }}</p>
     <Ninjas></Ninjas>
+    <samurais></samurais>
   </div>
 </template>
 
