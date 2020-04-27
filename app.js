@@ -1,40 +1,44 @@
-const app = new Vue({
-	el:"#vue-app",
+const one = new Vue({
+	el:"#vue-app-one",
 	data:{
-		health: 100,
-		ended: false
+		title: "Vue app one"
 	},
 	template:`
 		<div>
-			<h1>Punchbag Game</h1>
-			<!-- punchbag image -->
-			<div id="bag" v-bind:class="{ burst: ended }"></div>
-
-			<!-- punchbag health -->
-			<div id="bag-health">
-				<div v-bind:style="{width: health + '%'}"></div>
-			</div>
-
-			<!-- game controls -->
-			<div id="controls">
-				<button v-on:click="punch" v-show="!ended">Punch</button>
-				<button v-on:click="restart">Restart</button>
-			</div>
+			<h2>{{title}}</h2>
+			<p>{{greet}}</p>
 		</div>
 	`,
 	methods:{
-		punch(){
-			this.health -= 10
-			if(this.health <= 0){
-				this.ended = true;
-			}
-		},
-		restart(){
-			this.health = 100
-			this.ended = false
+	},
+	computed:{
+		greet(){
+			return 'Hello from app one :)';
+		}
+	}
+});
+
+
+const two = new Vue({
+	el:"#vue-app-two",
+	data:{
+		title: "Vue app two"
+	},
+	template:`
+		<div>
+			<h2>{{title}}</h2>
+			<p>{{greet}}</p>
+			<button v-on:click="changeTitle">Change app one title</button>
+		</div>
+	`,
+	methods:{
+		changeTitle(){
+			one.title = "Title changed"
 		}
 	},
 	computed:{
-		
+		greet(){
+			return 'Hello from app two :)';
+		}	
 	}
 });
