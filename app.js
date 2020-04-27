@@ -1,23 +1,21 @@
-Vue.component('greeting', {
-	template:'<p>Hey, I\'m a reusable component! {{name}}<button v-on:click="changeName">Change name</button></p>',
-	data(){
-		return {
-			name: 'Yoshi'
-		}
+var app = new Vue({
+	el:"#vue-app",
+	template:`
+		<div>
+			<h1></h1>
+			<input type="text" name="" id="" ref="input">
+			<button v-on:click="readRefs">Submit</button>
+			<p>Your fav food: {{ output }}</p>
+			<div ref="test"></div>
+		</div>
+	`,
+	data:{
+		output: ""
 	},
 	methods:{
-		changeName(){
-			this.name = 'mario'
+		readRefs(){
+			console.log(this.$refs)
+			this.output = this.$refs.input.value
 		}
 	}
-})
-
-new Vue({
-	el:"#vue-app-one",
-	
-});
-
-const two = new Vue({
-	el:"#vue-app-two",
-
 });
