@@ -1,8 +1,8 @@
 <template>
   <div>
-    <app-header></app-header>
+    <app-header v-bind:title="title" v-on:changeTitle="updateTitle($event)"></app-header>
     <app-body v-bind:ninjas="ninjas"></app-body>
-    <app-footer></app-footer>
+    <app-footer v-bind:title="title"></app-footer>
   </div>
 </template>
 
@@ -27,7 +27,14 @@
           {name: 'Hanzo', speciality: 'Conditionals', show: false},
           {name: 'Kami', speciality: 'Webpack', show: false},
           {name: 'Yoshi', speciality: 'Data Diggin', show: false}
-        ]
+        ],
+        title: "Vue Ninjas"
+      }
+    },
+    methods:{
+      updateTitle(t){
+        console.log(t, " <<<")
+        this.title = t
       }
     }
   }

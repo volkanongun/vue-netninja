@@ -1,6 +1,5 @@
 <template>
     <div>
-        <h1>Ninjas</h1>
         <ul>
             <li v-for="(ninja,key) in ninjas" 
                 v-bind:key="key" 
@@ -9,6 +8,7 @@
                     <h3 v-show="ninja.show">{{ninja.speciality}}</h3>
             </li>
         </ul>
+        <button v-on:click="deleteNinja">Delete Ninja</button>
     </div>
 </template>
 
@@ -23,6 +23,11 @@
         data(){
             return { 
                  
+            }
+        },
+        methods:{
+            deleteNinja(){
+                this.ninjas.pop()
             }
         }
     }
