@@ -8,7 +8,7 @@
 	export default {
 		data(){
 			return { 
-				ninjas: ['Yagami', 'Raito', 'Haohmaru']
+				ninjas: ['Ogami Ittō', 'Yagyū Retsudō', 'Haohmaru']
 			}
 		}
 	}
