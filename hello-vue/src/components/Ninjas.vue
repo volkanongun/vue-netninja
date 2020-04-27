@@ -2,8 +2,8 @@
     <div>
         <h1>Ninjas</h1>
         <ul>
-            <li v-for="ninja in ninjas" 
-                v-bind:key="ninja" 
+            <li v-for="(ninja,key) in ninjas" 
+                v-bind:key="key" 
                 v-on:click="ninja.show = !ninja.show">
                     <h2>{{ninja.name}}</h2>
                     <h3 v-show="ninja.show">{{ninja.speciality}}</h3>
@@ -14,16 +14,15 @@
 
 <script>
     export default {
+        props: {
+            ninjas:{
+                type: Array,
+                required: true
+            }
+        },
         data(){
             return { 
-                 ninjas: [
-                    {name: 'Ryu', speciality: 'Vue Components', show: false},
-                    {name: 'Hattori', speciality: 'HTML Wizardry', show: false},
-                    {name: 'Hitoshi', speciality: 'Click Events', show: false},
-                    {name: 'Hanzo', speciality: 'Conditionals', show: false},
-                    {name: 'Kami', speciality: 'Webpack', show: false},
-                    {name: 'Yoshi', speciality: 'Data Diggin', show: false}
-                ]
+                 
             }
         }
     }

@@ -1,7 +1,7 @@
 <template>
   <div>
     <app-header></app-header>
-    <app-body></app-body>
+    <app-body v-bind:ninjas="ninjas"></app-body>
     <app-footer></app-footer>
   </div>
 </template>
@@ -20,7 +20,14 @@
     },
     data(){
       return {
-
+        ninjas: [
+          {name: 'Ryu', speciality: 'Vue Components', show: false},
+          {name: 'Hattori', speciality: 'HTML Wizardry', show: false},
+          {name: 'Hitoshi', speciality: 'Click Events', show: false},
+          {name: 'Hanzo', speciality: 'Conditionals', show: false},
+          {name: 'Kami', speciality: 'Webpack', show: false},
+          {name: 'Yoshi', speciality: 'Data Diggin', show: false}
+        ]
       }
     }
   }
