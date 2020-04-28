@@ -1,47 +1,39 @@
 <template>
-  <div>
-    <app-header v-bind:title="title"></app-header>
-    <app-body v-bind:ninjas="ninjas"></app-body>
-    <app-footer v-bind:title="title"></app-footer>
-  </div>
+    <div>
+        <keep-alive>
+          <component v-bind:is="component"></component>
+        </keep-alive>
+        <button v-on:click="component='form-one'">Show form one</button>
+        <button v-on:click="component='form-two'">Show form two</button>
+    </div>
 </template>
 
 <script>
+// Imports
+import formOne from './components/formOne.vue';
+import formTwo from './components/formTwo.vue';
 
-  import Header from "./components/Header.vue";
-  import Ninjas from "./components/Ninjas.vue";
-  import Footer from "./components/Footer.vue";
-
-  export default {
-    components:{
-      'app-header' : Header,
-      'app-body' : Ninjas,
-      'app-footer' : Footer
+export default {
+    components: {
+        'form-one': formOne,
+        'form-two': formTwo
     },
-    data(){
-      return {
-        ninjas: [
-          {name: 'Ryu', speciality: 'Vue Components', show: false},
-          {name: 'Hattori', speciality: 'HTML Wizardry', show: false},
-          {name: 'Hitoshi', speciality: 'Click Events', show: false},
-          {name: 'Hanzo', speciality: 'Conditionals', show: false},
-          {name: 'Kami', speciality: 'Webpack', show: false},
-          {name: 'Yoshi', speciality: 'Data Diggin', show: false}
-        ],
-        title: "Vue Ninjas"
-      }
+    data () {
+        return {
+            component: 'form-one'
+        }
+    },
+    methods: {
+        handleSubmit: function(){
+            alert('thanks for submitting');
+        }
     }
-  }
-
+}
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body{
+    margin: 0;
+    font-family: 'Nunito SemiBold';
 }
 </style>
